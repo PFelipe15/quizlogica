@@ -1,6 +1,7 @@
 import React from "react";
 import questions from "../../data/questions";
 import "./styles.css";
+import srcImagem from "../../img/welcome.png";
 import { useState } from "react";
 
 function QuizPage() {
@@ -24,7 +25,7 @@ function QuizPage() {
       {showscore ? (
         <div className="score-section">
           <div className="apresentation-score">
-            <img src="../../src/img/welcome.png" alt="imgBrain" />
+            <img src={srcImagem} alt="imgBrain" />
             <h1 className="quiz-title">VOCÊ CONCLUIU O QUIZ! </h1>
             <span className="cor">
               Você pontuou{" "}

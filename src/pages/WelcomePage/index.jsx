@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import srcImagem from "../../img/welcome.png";
 import "./styles.css";
 
 function WelcomePage() {
@@ -7,7 +7,7 @@ function WelcomePage() {
     <div className="welcomePage-container">
       <div className="welcomeContainer ">
         <div className="apresentation-container">
-          <img src="../../src/img/welcome.png" alt="imgBrain" />
+          <img src={srcImagem} alt="imgBrain" />
 
           <div className="welcomeContainer-title">
             <h1 className="welcome-title">
