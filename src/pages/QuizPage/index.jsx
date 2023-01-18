@@ -2,6 +2,7 @@ import React from "react";
 import questions from "../../data/questions";
 import "./styles.css";
 import { useState } from "react";
+import DeveloperFor from "../../components/developerFor";
 function QuizPage() {
   const [score, setScore] = useState(0);
   const [showscore, setShowScore] = useState(false);
@@ -58,7 +59,9 @@ function QuizPage() {
           </main>
         </>
       )}
+      
     </div>
+    
   );
 }
 
