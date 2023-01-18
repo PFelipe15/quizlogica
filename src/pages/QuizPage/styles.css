@@ -1,0 +1,185 @@
+.quizPage-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #621c7e;
+}
+
+.content-container {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  background-color: #23022f;
+  border-radius: 15px;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 10px 10px 50px 24px;
+}
+
+.pergunta {
+  width: 100%;
+  height: 15%;
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  text-transform: uppercase;
+}
+
+.resposta {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 85%;
+  padding: 15px;
+  justify-content: space-between;
+}
+
+.grupoResposta {
+  display: flex;
+  width: 100%;
+  height: 60px;
+}
+
+.grupoResposta button {
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  color: #23022f;
+  font-size: 1.4rem;
+  border-radius: 15px;
+}
+
+.grupoResposta button:hover {
+  transition: transform 1.3s;
+  transform: scale(1.02);
+}
+
+.question-section {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 18px;
+  align-items: center;
+  font-size: 1.4rem;
+  width: 100%;
+  color: #fff;
+}
+
+.score-section {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font: 1.5em "Caveat";
+  font-weight: bold;
+}
+
+.apresentation-score img {
+  display: flex;
+  width: 420px;
+  height: 420px;
+  transform: translateY(0px);
+  animation: float 8s ease-in-out infinite;
+}
+
+.apresentation-score {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font: 1.3em "Caveat";
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .content-container {
+    width: 90%;
+    height: 70%;
+    margin: 15px;
+  }
+
+  .pergunta {
+    width: 100%;
+    height: 15%;
+    font-size: 2.2rem;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    text-transform: uppercase;
+  }
+
+  .grupoResposta button {
+    width: 100%;
+    font-size: 2.2rem;
+    padding: 11px;
+  }
+  .grupoResposta {
+    height: 120px;
+  }
+}
+
+@media screen and (max-width: 819px) {
+  .content-container {
+    width: 90%;
+    height: 70%;
+    margin: 15px;
+  }
+
+  .pergunta {
+    width: 100%;
+    height: 15%;
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    text-transform: uppercase;
+  }
+
+  .grupoResposta button {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 11px;
+  }
+  .grupoResposta {
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .content-container {
+    width: 90%;
+    height: 95%;
+    margin: 15px;
+  }
+
+  .pergunta {
+    width: 100%;
+    height: 15%;
+    font-size: 1.3rem;
+    color: #fff;
+  }
+
+  .grupoResposta button {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 11px;
+  }
+  .grupoResposta {
+    height: 110px;
+  }
+
+  .score-section {
+    font: 1.3em "Caveat";
+    font-weight: bold;
+  }
+
+  .apresentation-score {
+    font: 1.3em "Caveat";
+    width: 100%;
+  }
+}
