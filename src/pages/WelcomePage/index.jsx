@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import srcImagem from "../../img/welcome.png";
 import "./styles.css";
 
@@ -14,9 +15,9 @@ function WelcomePage() {
               TESTE SEUS CONHECIMENTOS EM LOGICA DE PROGRAMAÇÃO RELACIONADO A
               JAVASCRIPT COM O NOSSO QUIZ!
             </h1>
-            <a href="/Quiz">
+            <Link to={"/Quiz"}>
               <button className="btnWelcome">COMEÇAR</button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
