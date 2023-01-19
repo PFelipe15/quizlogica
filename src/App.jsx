@@ -2,6 +2,7 @@ import "./App.css";
 import QuizPage from "./pages/QuizPage";
 import WelcomePage from "./pages/WelcomePage";
 import { Routes, Route } from "react-router-dom";
+ 
 function App() {
   return (
     <Routes >

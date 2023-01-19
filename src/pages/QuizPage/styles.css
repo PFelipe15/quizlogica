@@ -45,14 +45,31 @@
 }
 
 .grupoResposta button {
+  background-color: rgb(255, 255, 255);
   width: 100%;
-  background-color: #fff;
   border: none;
   color: #23022f;
   font-size: 1.4rem;
   border-radius: 15px;
 }
 
+.certo {
+  background-color: green;
+  width: 100%;
+  border: none;
+  color: #23022f;
+  font-size: 1.4rem;
+  border-radius: 15px;
+}
+
+.errado {
+  background-color: red;
+  width: 100%;
+  border: none;
+  color: #23022f;
+  font-size: 1.4rem;
+  border-radius: 15px;
+}
 .grupoResposta button:hover {
   transition: transform 1.3s;
   transform: scale(1.02);
@@ -60,14 +77,26 @@
 
 .question-section {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding-right: 18px;
   align-items: center;
   font-size: 1.4rem;
   width: 100%;
   color: #fff;
+  gap: 50px;
 }
-
+.BtnReinicio {
+  width: 120px;
+  height: 30px;
+  background-color: #fff;
+  border: none;
+  color: #23022f;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+.BtnReinicio:hover {
+  background-color: red;
+}
 .score-section {
   display: flex;
   width: 100%;
@@ -181,5 +210,9 @@
   .apresentation-score {
     font: 1.3em "Caveat";
     width: 100%;
+  }
+  .question-section {
+    width: 100%;
+    font: 1.5em "Caveat";
   }
 }
