@@ -15,7 +15,7 @@ function QuizPage() {
   const [showscore, setShowScore] = useState(false);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(15);
+  const [timeLeft, setTimeLeft] = useState(60);
 
   useEffect(() => {
     const interval = setInterval(() => {
