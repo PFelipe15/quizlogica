@@ -8,9 +8,7 @@ import { ToastContainer } from "react-toastify";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <UserProvider>
-      
-        <App />
-    
+      <App />
     </UserProvider>
   </BrowserRouter>
 );

@@ -15,22 +15,31 @@ function QuizPage() {
   const [showscore, setShowScore] = useState(false);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(15);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(timeLeft - 1);
     }, 1000);
-
+    let timeLeftColor = document.querySelector(".time-left");
     if (timeLeft < 10) {
-      let timeLeft = document.querySelector(".time-left");
-      timeLeft.style.color = "red";
+      timeLeftColor.style.color = "red";
     }
 
     if (timeLeft === 0) {
-      alert("Tempo Esgotado!");
-      setCurrentQuestion(currentQuestion + 1);
+      toast.error("TEMPO ESGOTADO!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       setTimeLeft(60);
+      timeLeftColor.style.color = "#fff";
+      setCurrentQuestion(currentQuestion + 1);
     }
     return () => clearInterval(interval);
   }, [timeLeft]);
@@ -43,6 +52,7 @@ function QuizPage() {
     if (currentQuestion + 1 === questions.questions.length) {
       setShowScore(true);
     }
+
     setCurrentQuestion(currentQuestion + 1);
     setTimeLeft(60);
   }
@@ -67,7 +77,8 @@ function QuizPage() {
         <>
           <main className="content-container">
             <div className="pergunta">
-              {user ? user: 'Usuario'}, {questions.questions[currentQuestion].question}
+              {user ? user : "Usuario"},{" "}
+              {questions.questions[currentQuestion].question}
             </div>
 
             <div className="resposta">
