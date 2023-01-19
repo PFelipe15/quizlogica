@@ -5,16 +5,17 @@ import srcImagem from "../../img/welcome.png";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../Context/userContext";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function QuizPage() {
   const { user } = useContext(UserContext);
-
   const [score, setScore] = useState(0);
   const [showscore, setShowScore] = useState(false);
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [timeLeft, setTimeLeft] = useState(60);
-  const [colorAnswer, setColorAnswer] = useState("");
-  const [timeButton, setTimeButton] = useState(3);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,14 +35,10 @@ function QuizPage() {
     return () => clearInterval(interval);
   }, [timeLeft]);
 
-
-
-  
   function handleAnswer(isCorrect, index) {
     if (isCorrect === true) {
       setScore(score + 1);
     }
-    setColorAnswer(isCorrect ? "certo" : "errado");
 
     if (currentQuestion + 1 === questions.questions.length) {
       setShowScore(true);
@@ -49,8 +46,10 @@ function QuizPage() {
     setCurrentQuestion(currentQuestion + 1);
     setTimeLeft(60);
   }
+
   return (
     <div className="quizPage-container">
+      <ToastContainer />
       {showscore ? (
         <div className="score-section">
           <div className="apresentation-score">
@@ -68,7 +67,7 @@ function QuizPage() {
         <>
           <main className="content-container">
             <div className="pergunta">
-              {questions.questions[currentQuestion].question}
+              {user ? user: 'Usuario'}, {questions.questions[currentQuestion].question}
             </div>
 
             <div className="resposta">
@@ -76,7 +75,6 @@ function QuizPage() {
                 (answer, index) => (
                   <div className={"grupoResposta"}>
                     <button
-                      className={colorAnswer}
                       key={index}
                       onClick={() => {
                         handleAnswer(answer.correct, index);

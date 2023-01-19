@@ -53,26 +53,11 @@
   border-radius: 15px;
 }
 
-.certo {
-  background-color: green;
-  width: 100%;
-  border: none;
-  color: #23022f;
-  font-size: 1.4rem;
-  border-radius: 15px;
-}
-
-.errado {
-  background-color: red;
-  width: 100%;
-  border: none;
-  color: #23022f;
-  font-size: 1.4rem;
-  border-radius: 15px;
-}
 .grupoResposta button:hover {
   transition: transform 1.3s;
   transform: scale(1.02);
+  background-color: #621c7e;
+  color: #fff;
 }
 
 .question-section {
@@ -95,7 +80,8 @@
   border-radius: 5px;
 }
 .BtnReinicio:hover {
-  background-color: red;
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
 }
 .score-section {
   display: flex;
