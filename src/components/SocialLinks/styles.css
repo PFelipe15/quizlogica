@@ -1,5 +1,5 @@
 .social-container {
-  margin-top: 60px;
+  margin-top: 40px;
   display: flex;
   width: 350px;
   height: 35px;
@@ -15,4 +15,20 @@
 .title-social {
   font: 1.5em "Caveat";
   color: #23022f;
+}
+.social-icon {
+  color: #23022f;
+}
+@media screen and (max-width: 820px) {
+  .social-container {
+    margin: 0;
+  }
+
+  .title-social {
+    color: #fff;
+  }
+
+  .social-icon {
+    color: #fff;
+  }
 }

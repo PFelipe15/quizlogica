@@ -1,5 +1,9 @@
 import React from "react";
-import { TiSocialLinkedinCircular, TiSocialInstagramCircular, TiSocialGithubCircular } from "react-icons/ti";
+import {
+  TiSocialLinkedinCircular,
+  TiSocialInstagramCircular,
+  TiSocialGithubCircular,
+} from "react-icons/ti";
 import "./styles.css";
 function SocialLinks() {
   return (
@@ -10,15 +14,19 @@ function SocialLinks() {
         href="https://www.linkedin.com/in/paulo-felipe-torres-ara%C3%BAjo-45337723b/"
       >
         {" "}
-        <TiSocialLinkedinCircular size={35} color="#23022f" />
+        <TiSocialLinkedinCircular size={35} className="social-icon" />
       </a>
       <a target={"_blank"} href="https://www.instagram.com/paullofelipe_/">
         {" "}
-        <TiSocialInstagramCircular size={35} color="#23022f" />
+        <TiSocialInstagramCircular size={35} className="social-icon" />
       </a>
-      <a target={"_blank"} href="https://github.com/PFelipe15">
+      <a
+        target={"_blank"}
+        href="https://github.com/PFelipe15"
+        className="social-icon"
+      >
         {" "}
-        <TiSocialGithubCircular size={35} color="#23022f" />
+        <TiSocialGithubCircular size={35} className="social-icon" />
       </a>
     </div>
   );

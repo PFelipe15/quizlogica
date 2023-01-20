@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { UserContext } from "../../Context/userContext";
 import { ToastContainer, toast } from "react-toastify";
-
+import SocialLinks from "../../components/SocialLinks";
 import "react-toastify/dist/ReactToastify.css";
 
 function QuizPage() {
@@ -57,6 +57,25 @@ function QuizPage() {
     setTimeLeft(60);
   }
 
+  function scoreAnalise(score) {
+    let displayHidden = document.querySelector(".cor");
+    displayHidden.style.display = "flex";
+    if (score === questions.questions.length) {
+      return toast.success("Você acertou todas as questoes, parabéns!");
+    }
+    if (score === 0) {
+      return toast.error("Você não acertou nenhuma questão, estude mais!");
+    }
+    if (score > questions.questions.length / 2) {
+      return toast.info("Você acertou mais da metade das questoes, muito bom!");
+    }
+    if (score < questions.questions.length / 2) {
+      return toast.warn(
+        "Você acertou menos da metade das questoes, tem que melhorar!"
+      );
+    }
+  }
+
   return (
     <div className="quizPage-container">
       <ToastContainer />
@@ -65,6 +84,14 @@ function QuizPage() {
           <div className="apresentation-score">
             <img src={srcImagem} alt="imgBrain" />
             <h1 className="quiz-title">VOCÊ CONCLUIU O QUIZ! </h1>
+            <button
+              className="scoreButton"
+              onClick={() => {
+                scoreAnalise(score);
+              }}
+            >
+              Analisar Minha Pontuação
+            </button>
             <span className="cor">
               {score === questions.questions.length
                 ? `Parabens ${user}, você acertou todas as ${score} `
@@ -116,6 +143,7 @@ function QuizPage() {
           </main>
         </>
       )}
+      <SocialLinks />
     </div>
   );
 }
