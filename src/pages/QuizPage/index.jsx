@@ -13,17 +13,26 @@ function QuizPage() {
   const { user, setUser } = useContext(UserContext);
   const [score, setScore] = useState(0);
   const [showscore, setShowScore] = useState(false);
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(60);
-
+  const [timeLeft, setTimeLeft] = useState(5000);
+  const [inicialTimeQuestion, setInicialTimeQuestion] = useState(false);
+  const [classes, setClasses] = useState("padrao");
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(timeLeft - 1);
     }, 1000);
     let timeLeftColor = document.querySelector(".time-left");
+
     if (timeLeft < 10) {
       timeLeftColor.style.color = "red";
+    }
+    if (inicialTimeQuestion === true) {
+      setTimeout(() => {
+        setCurrentQuestion(currentQuestion + 1);
+        setTimeLeft(60);
+        setClasses(["padrao"]);
+      }, 2000);
+      setInicialTimeQuestion(false);
     }
 
     if (timeLeft === 0) {
@@ -39,6 +48,7 @@ function QuizPage() {
       });
       setTimeLeft(60);
       timeLeftColor.style.color = "#fff";
+
       setCurrentQuestion(currentQuestion + 1);
     }
     return () => clearInterval(interval);
@@ -52,22 +62,30 @@ function QuizPage() {
     if (currentQuestion + 1 === questions.questions.length) {
       setShowScore(true);
     }
-
-    setCurrentQuestion(currentQuestion + 1);
-    setTimeLeft(60);
+    setClasses(isCorrect ? "acerto" : "errado");
+    setInicialTimeQuestion(true);
   }
 
   function scoreAnalise(score) {
     let displayHidden = document.querySelector(".cor");
     displayHidden.style.display = "flex";
     if (score === questions.questions.length) {
-      return toast.success("Você acertou todas as questoes, parabéns!");
+      return toast.success("Você acertou todas as questoes, parabéns!", {
+        autoClose: 10000,
+      });
     }
     if (score === 0) {
-      return toast.error("Você não acertou nenhuma questão, estude mais!");
+      return toast.error("Você não acertou nenhuma questão, estude mais!", {
+        autoClose: 10000,
+      });
     }
     if (score >= questions.questions.length / 2) {
-      return toast.info("Você acertou mais da metade das questoes, muito bom!");
+      return toast.info(
+        "Você acertou mais da metade das questoes, muito bom!",
+        {
+          autoClose: 10000,
+        }
+      );
     }
     if (score < questions.questions.length / 2) {
       return toast.warn(
@@ -116,6 +134,7 @@ function QuizPage() {
                 (answer, index) => (
                   <div className={"grupoResposta"}>
                     <button
+                      className={classes}
                       key={index}
                       onClick={() => {
                         handleAnswer(answer.correct, index);

@@ -45,8 +45,8 @@
   height: 60px;
 }
 
-.grupoResposta button {
-  background-color: rgb(255, 255, 255);
+.acerto {
+  background-color: green;
   width: 100%;
   border: none;
   color: #23022f;
@@ -54,6 +54,23 @@
   border-radius: 15px;
 }
 
+.errado {
+  background-color: red;
+  width: 100%;
+  border: none;
+  color: #23022f;
+  font-size: 1.4rem;
+  border-radius: 15px;
+}
+
+.padrao {
+  background-color: #fff;
+  width: 100%;
+  border: none;
+  color: #23022f;
+  font-size: 1.4rem;
+  border-radius: 15px;
+}
 .scoreButton {
   background-color: transparent;
   width: 280px;
