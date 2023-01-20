@@ -56,7 +56,7 @@
 
 .scoreButton {
   background-color: transparent;
-  width: 30%;
+  width: 280px;
   height: 40px;
   border: 2px #23022f solid;
   color: #23022f;
@@ -183,6 +183,11 @@
 }
 
 @media screen and (max-width: 450px) {
+  .score-section {
+    width: 100%;
+    height: 100%;
+  }
+
   .content-container {
     width: 100%;
     height: 98%;
