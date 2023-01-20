@@ -4,6 +4,7 @@ import srcImagem from "../../img/welcome.png";
 import "./styles.css";
 import { useContext } from "react";
 import { UserContext } from "../../Context/userContext";
+import SocialLinks from "../../components/SocialLinks";
 function WelcomePage() {
   const { user, setUser } = useContext(UserContext);
 
@@ -12,11 +13,9 @@ function WelcomePage() {
       <div className="welcomeContainer ">
         <div className="apresentation-container">
           <img src={srcImagem} alt="imgBrain" />
-
           <div className="welcomeContainer-title">
             <h1 className="welcome-title">
-              TESTE SEUS CONHECIMENTOS EM LOGICA DE PROGRAMAÇÃO RELACIONADO A
-              JAVASCRIPT COM O NOSSO QUIZ!
+              TESTE SEUS CONHECIMENTOS EM LOGICA DE PROGRAMAÇÃO!
             </h1>
 
             <div class="form">
@@ -35,8 +34,19 @@ function WelcomePage() {
               </label>
             </div>
             <Link to={"/Quiz"}>
-              <button className="btnWelcome">COMEÇAR</button>
+              <button
+                onClick={() => {
+                  if (user === "") {
+                    setUser("Usuario");
+                  }
+                }}
+                className="btnWelcome"
+              >
+                COMEÇAR
+              </button>
             </Link>
+
+            <SocialLinks />
           </div>
         </div>
       </div>

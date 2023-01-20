@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function QuizPage() {
-  const { user } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const [score, setScore] = useState(0);
   const [showscore, setShowScore] = useState(false);
 
@@ -102,6 +102,7 @@ function QuizPage() {
                 className="BtnReinicio"
                 onClick={() => {
                   setCurrentQuestion(0);
+                  setScore(0);
                   setTimeLeft(60);
                 }}
               >
