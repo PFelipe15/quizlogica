@@ -10,11 +10,11 @@ import SocialLinks from "../../components/SocialLinks";
 import "react-toastify/dist/ReactToastify.css";
 
 function QuizPage() {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [score, setScore] = useState(0);
   const [showscore, setShowScore] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(5000);
+  const [timeLeft, setTimeLeft] = useState(60);
   const [inicialTimeQuestion, setInicialTimeQuestion] = useState(false);
   const [classes, setClasses] = useState("padrao");
   useEffect(() => {
