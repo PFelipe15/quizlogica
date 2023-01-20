@@ -66,12 +66,15 @@ function QuizPage() {
     if (score === 0) {
       return toast.error("Você não acertou nenhuma questão, estude mais!");
     }
-    if (score > questions.questions.length / 2) {
+    if (score >= questions.questions.length / 2) {
       return toast.info("Você acertou mais da metade das questoes, muito bom!");
     }
     if (score < questions.questions.length / 2) {
       return toast.warn(
-        "Você acertou menos da metade das questoes, tem que melhorar!"
+        "Você acertou menos da metade das questoes, tem que melhorar!",
+        {
+          autoClose: 10000,
+        }
       );
     }
   }
