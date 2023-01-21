@@ -18,6 +18,7 @@ function QuizPage() {
   const [timeLeft, setTimeLeft] = useState(60);
   const [inicialTimeQuestion, setInicialTimeQuestion] = useState(false);
   const [classes, setClasses] = useState("padrao");
+  const [buttonPressed, setButtonPressed] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft(timeLeft - 1);
@@ -32,6 +33,7 @@ function QuizPage() {
         setCurrentQuestion(currentQuestion + 1);
         setTimeLeft(60);
         setClasses(["padrao"]);
+        setButtonPressed(false);
       }, 3000);
       setInicialTimeQuestion(false);
     }
@@ -60,6 +62,11 @@ function QuizPage() {
   }, [timeLeft]);
 
   function handleAnswer(isCorrect, index) {
+
+    if (!buttonPressed) {
+      setButtonPressed(true);
+      console.log('Button pressed!');
+    }
     if (isCorrect === true) {
       setScore(score + 1);
     }
@@ -140,6 +147,7 @@ function QuizPage() {
                 (answer, index) => (
                   <div className={"grupoResposta"}>
                     <button
+                    disabled={buttonPressed}
                       className={classes}
                       key={index}
                       onClick={() => {
