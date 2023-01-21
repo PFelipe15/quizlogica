@@ -14,6 +14,7 @@ function QuizPage() {
   const [score, setScore] = useState(0);
   const [showscore, setShowScore] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [timeLeftStop, setTimeLeftStop] = useState(false);
   const [timeLeft, setTimeLeft] = useState(60);
   const [inicialTimeQuestion, setInicialTimeQuestion] = useState(false);
   const [classes, setClasses] = useState("padrao");
@@ -26,12 +27,12 @@ function QuizPage() {
     if (timeLeft < 10) {
       timeLeftColor.style.color = "red";
     }
-    if (inicialTimeQuestion === true) {
+    if (inicialTimeQuestion) {
       setTimeout(() => {
         setCurrentQuestion(currentQuestion + 1);
         setTimeLeft(60);
         setClasses(["padrao"]);
-      }, 2000);
+      }, 3000);
       setInicialTimeQuestion(false);
     }
 
@@ -51,6 +52,10 @@ function QuizPage() {
 
       setCurrentQuestion(currentQuestion + 1);
     }
+
+    if (timeLeftStop) {
+      setTimeLeft(60);
+    }
     return () => clearInterval(interval);
   }, [timeLeft]);
 
@@ -61,6 +66,7 @@ function QuizPage() {
 
     if (currentQuestion + 1 === questions.questions.length) {
       setShowScore(true);
+      setTimeLeftStop(true);
     }
     setClasses(isCorrect ? "acerto" : "errado");
     setInicialTimeQuestion(true);
