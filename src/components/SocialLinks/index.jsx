@@ -11,7 +11,7 @@ function SocialLinks() {
       <h3 className="title-social">Desenvolvido por Paulo Felipe</h3>
       <a
         target={"_blank"}
-        href="https://www.linkedin.com/in/paulo-felipe-torres-ara%C3%BAjo-45337723b/"
+        href="https://www.linkedin.com/in/pauloofer/"
       >
         {" "}
         <TiSocialLinkedinCircular size={35} className="social-icon" />
